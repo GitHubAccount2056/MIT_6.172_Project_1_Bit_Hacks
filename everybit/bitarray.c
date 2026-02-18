@@ -207,8 +207,8 @@ inline void bitarray_set_u64(bitarray_t *b, size_t bit_index, uint64_t value) {
     uint64_t new_word = (old_word & mask_lo) | (value << bit_off);
     uint8_t new_byte  = (old_byte & mask_hi) | (uint8_t)(value >> (64 - bit_off));
 
-    memcpy(b -> buf + byte_idx, &new_word, sizeof(uint64_t));
-    b -> buf[byte_idx + sizeof(uint64_t)] = (char)new_byte;
+    memcpy((b -> buf) + byte_idx, &new_word, sizeof(uint64_t));
+    b -> buf[byte_idx + sizeof(uint64_t)] = (char) new_byte;
 }
 
 static inline void 
